@@ -11,13 +11,24 @@ function SpicyFoodList() {
     //console.log(newFoodArr);
   }
 
-  function handleClick(id) {
-    const newFoodArr = foods.filter((food) => food.id !== id);
-    setFoods(newFoodArr);
+  // function handleClick(id) {
+  //   const newFoodArr = foods.filter((food) => food.id !== id);
+  //   setFoods(newFoodArr);
+  // }
+
+  function handleLiClick(id) {
+    const newFoodArray = foods.map((food) => {
+      if (food.id === id) {
+        return { ...food, heatLevel: food.heatLevel + 1 };
+      } else {
+        return food;
+      }
+    });
+    setFoods(newFoodArray);
   }
 
   const foodList = foods.map((food) => (
-    <li key={food.id} onClick={() => handleClick(food.id)}>
+    <li key={food.id} onClick={() => handleLiClick(food.id)}>
       {food.name} | Heat: {food.heatLevel} | Cuisine: {food.cuisine}
     </li>
   ));
