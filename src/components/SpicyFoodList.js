@@ -6,7 +6,9 @@ function SpicyFoodList() {
 
   function handleAddFood() {
     const newFood = getNewRandomSpicyFood();
-    console.log(newFood);
+    const newFoodArr = [...foods, newFood];
+    setFoods(newFoodArr);
+    //console.log(newFoodArr);
   }
 
   const foodList = foods.map((food) => (
@@ -19,6 +21,7 @@ function SpicyFoodList() {
     <div>
       <button onClick={handleAddFood}>Add New Food</button>
       <ul>{foodList}</ul>
+      {/* <ul>{newFood}</ul> */}
     </div>
   );
 }
