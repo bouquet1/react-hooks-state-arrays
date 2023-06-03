@@ -11,8 +11,13 @@ function SpicyFoodList() {
     //console.log(newFoodArr);
   }
 
+  function handleClick(id) {
+    const newFoodArr = foods.filter((food) => food.id !== id);
+    setFoods(newFoodArr);
+  }
+
   const foodList = foods.map((food) => (
-    <li key={food.id}>
+    <li key={food.id} onClick={() => handleClick(food.id)}>
       {food.name} | Heat: {food.heatLevel} | Cuisine: {food.cuisine}
     </li>
   ));
